@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const app = express();
+require('dotenv').config();
 
 
 function authenticateTokenMiddleware(req, res, next) {
@@ -87,7 +88,7 @@ app.post("/login", async (req, res) => {
 
 });
 
-// create a book 
+// create a book
 app.post("/books", authenticateTokenMiddleware, upload.single('image'), async (req, res) => {
   const { title, author, publisher, year, pages } = req.body;
   try {
@@ -159,7 +160,7 @@ app.delete("/books/:id", authenticateTokenMiddleware, async (req, res) => {
   }
 });
 
-// get book by id 
+// get book by id
 app.get("/books/:id", async (req, res) => {
   try {
     const { id } = req.params;

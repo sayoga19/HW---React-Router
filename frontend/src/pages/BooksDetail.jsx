@@ -60,16 +60,16 @@ export default function BookDetails() {
             />
           </Box>
           <Box ml="8">
-            <Heading as="h1" size="lg">
+            <Heading as="h1" size="lg" color={"teal.500"}>
               {book.title}
             </Heading>
             <Text fontSize="xl" fontWeight="semibold" color="gray.500">
               {book.author}
             </Text>
-            <Text fontSize="xl" fontWeight="semibold" color="gray.500">
+            <Text fontSize="xl" fontWeight="bold">
               {book.publisher}
             </Text>
-            <Text fontSize="xl" fontWeight="semibold" color="gray.500" mb="4">
+            <Text fontSize="xl" fontWeight="semibold" color="teal.600" mb="4">
               {book.year} | {book.pages} pages
             </Text>
           </Box>

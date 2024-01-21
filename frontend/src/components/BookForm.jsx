@@ -9,10 +9,12 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { createBook, editBook } from "../modules/fetch";
+import { useNavigate } from "react-router-dom";
 
 export default function BookForm({ bookData }) {
   const toast = useToast();
   const [selectedImage, setSelectedImage] = useState(null);
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -43,6 +45,7 @@ export default function BookForm({ bookData }) {
           duration: 5000,
           isClosable: true,
         });
+        navigate(`/books/${bookData.id}`);
       } catch (error) {
         toast({
           title: "Error",
@@ -65,6 +68,7 @@ export default function BookForm({ bookData }) {
         isClosable: true,
       });
       setSelectedImage("");
+      navigate("/");
     } catch (error) {
       toast({
         title: "Error",
